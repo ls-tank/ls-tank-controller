@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "fire-icon",
+    "texture": "ad94fde7-5659-4af8-a458-7ec929999a4c",
+    "atlas": "",
+    "rect": [
+      16,
+      17,
+      110,
+      76
+    ],
+    "offset": [
+      4,
+      1.5
+    ],
+    "originalSize": [
+      134,
+      113
+    ],
+    "rotated": 0
+  }
+}

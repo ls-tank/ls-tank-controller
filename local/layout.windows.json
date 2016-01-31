@@ -16,7 +16,7 @@
                   "hierarchy.panel"
                 ],
                 "type": "panel",
-                "width": 224
+                "width": 271
               },
               {
                 "active": 0,
@@ -25,13 +25,13 @@
                   "assets.panel"
                 ],
                 "type": "panel",
-                "width": 224
+                "width": 271
               }
             ],
             "height": 744,
             "row": false,
             "type": "dock",
-            "width": 224
+            "width": 271
           },
           {
             "docks": [
@@ -42,7 +42,7 @@
                   "scene.panel"
                 ],
                 "type": "panel",
-                "width": 866
+                "width": 819
               },
               {
                 "active": 0,
@@ -52,13 +52,13 @@
                   "timeline.panel"
                 ],
                 "type": "panel",
-                "width": 866
+                "width": 819
               }
             ],
             "height": 744,
             "row": false,
             "type": "dock",
-            "width": 866
+            "width": 819
           },
           {
             "active": 0,
@@ -74,6 +74,18 @@
         "row": true,
         "type": "dock"
       }
+    },
+    "editor-window-1454254974941": {
+      "x": 320,
+      "y": 128,
+      "width": 800,
+      "height": 622
+    },
+    "worker": {
+      "x": 520,
+      "y": 278,
+      "width": 400,
+      "height": 300
     }
   }
 }
