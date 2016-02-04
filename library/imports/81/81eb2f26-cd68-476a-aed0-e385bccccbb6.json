@@ -256,7 +256,7 @@
     "__type__": "cc.Node",
     "_name": "ctrlContainer",
     "_objFlags": 0,
-    "_opacity": 125,
+    "_opacity": 200,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,

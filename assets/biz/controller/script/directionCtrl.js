@@ -10,8 +10,11 @@ cc.Class({
     },
 
     onLoad: function () {
-        
         this.setTouchControl();
+        
+        this.node.on('direction', function (event) {
+           console.log(event.detail.direction); 
+        });
     },
     
     setTouchControl: function () {
@@ -25,13 +28,13 @@ cc.Class({
     },
     
     __getAngle: function (pos) {
-        this.angle = Math.atan2(pos.y, pos.x) * 57.29577951; // todo
+        this.angle = Math.atan2(pos.y, pos.x) / cc.PI * 180;
         return this.angle;
     },
     
     __getRadians: function (pos) {
-        this.radians = cc.PI / 180 * this.__getAngle(pos);
-        return this.radians;
+      this.radians = Math.atan2(pos.y, pos.x);
+      return this.radians;
     },
     
     __getLength: function (pos) {
@@ -39,66 +42,53 @@ cc.Class({
     },
     
     onUpdateDirection : function (position) {
-        // if(this.angle > -22.5 && this.angle < 22.5){
-        //     this.direction = 'D_RIGHT';
-        // }
-        // else if(this.angle > 22.5 && this.angle < 67.5){
-        //     this.direction = 'D_RIGHT_UP';
-        // }
-        // else if(this.angle > 67.5 && this.angle < 112.5){
-        //     this.direction = 'D_UP';
-        // }
-        // else if(this.angle > 112.5 && this.angle < 157.5){
-        //     this.direction = 'D_LEFT_UP';
-        // }
-        // else if((this.angle > 157.5 && this.angle < 180)||(this.angle < -157.5 && this.angle > -180)){
-        //     this.direction = 'D_LEFT';
-        // }
-        // else if(this.angle < -112.5 && this.angle > -157.5){
-        //     this.direction = 'D_LEFT_DOWN';
-        // }
-        // else if(this.angle < -67.5 && this.angle > -112.5){
-        //     this.direction = 'D_DOWN';
-        // }
-        // else if(this.angle < -22.5 && this.angle > -67.5){
-        //     this.direction = 'D_RIGHT_DOWN';
-        // }
+        if (this.angle < 0) this.angle = this.angle + 360;
+        
+        if (this.angle > -45 && this.angle <= 45) this.direction = 'RIGHT';
+        if (this.angle > 45 && this.angle <= 135) this.direction = 'UP';
+        if (this.angle > 135 && this.angle <= 225) this.direction = 'LEFT';
+        if (this.angle > 225 && this.angle <= 315) this.direction = 'DOWN';
+        
+        this.node.emit('direction', {
+            direction: this.direction
+        });
     },
     
     onTouchBegan: function (touch, event) {
         var target = this.follower;
         var touchLoc = touch.getLocation();
         
-        var locInNode = target.convertToNodeSpace(touchLoc);
+        var locInNode = this.node.convertToNodeSpaceAR(touchLoc);
+        var tmpLength = this.__getLength(locInNode);
         
-        var size = target.parent.getContentSize();
-        size.width = size.width * target.parent.scale;
-        size.height = size.height * target.parent.scale;
-        
-        var rect = cc.rect(0, 0, size.width, size.height);
-        if (!cc.rectContainsPoint(rect, locInNode)) {
-            return false;
-        }
-        
-        return true;
+        return tmpLength < 103;
     },
     
     onTouchMoved: function (touch, event) {
         var target = this.follower;
         var touchLoc = touch.getLocation();
         
-        var locInNode = target.convertToNodeSpace(touchLoc);
-        
+        var locInNode = this.node.convertToNodeSpaceAR(touchLoc);
         this.__getAngle(locInNode);
         this.__getRadians(locInNode);
         this.onUpdateDirection(locInNode);
-        console.log(this.direction);
         
+        
+        var tmpLength = this.__getLength(locInNode);
+        
+        if (tmpLength < 103) {
+            target.setPosition(locInNode);
+        } else {
+            var x = Math.cos(this.radians) * 103;
+            var y = Math.sin(this.radians) * 103;
+            target.setPosition(cc.p(x, y));
+        }
         
     },
     
     onTouchEnded: function (touch, event) {
-        
+        var target = this.follower;
+        target.setPosition({x: 0, y: 0});
     },
     
     update: function (dt) {
