@@ -3,6 +3,8 @@ cc._RFpush(module, '8dfd11I/pBAD7XnN4iH9tiV', 'directionCtrl');
 
 'use strict';
 
+var sio = require('../../../lib/socket.io.js');
+
 cc.Class({
     'extends': cc.Component,
 

@@ -1,3 +1,5 @@
+var sio = require('../../../lib/socket.io.js');
+
 cc.Class({
     extends: cc.Component,
 
@@ -13,7 +15,7 @@ cc.Class({
         this.setTouchControl();
         
         this.node.on('direction', function (event) {
-           console.log(event.detail.direction); 
+           console.log(event.detail.direction);
         });
     },
     

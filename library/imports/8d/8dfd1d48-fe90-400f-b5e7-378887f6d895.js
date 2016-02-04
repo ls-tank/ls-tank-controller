@@ -1,5 +1,7 @@
 'use strict';
 
+var sio = require('../../../lib/socket.io.js');
+
 cc.Class({
     'extends': cc.Component,
 
