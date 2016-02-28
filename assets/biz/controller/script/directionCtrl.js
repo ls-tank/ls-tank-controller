@@ -1,4 +1,5 @@
 var sio = require('../../../lib/socket.io.js');
+var utils = require('../../../utils/');
 
 cc.Class({
     extends: cc.Component,
@@ -16,6 +17,10 @@ cc.Class({
         
         this.node.on('direction', function (event) {
            console.log(event.detail.direction);
+           window.socket.emit('direction', {
+               uid: utils.getUid(),
+               direct: event.detail.direction
+           });
         });
     },
     
