@@ -17,9 +17,9 @@ cc.Class({
         
         this.node.on('direction', function (event) {
            console.log(event.detail.direction);
-           window.socket.emit('direction', {
+           window.socket.emit('c-direction', {
                uid: utils.getUid(),
-               direct: event.detail.direction
+               direction: event.detail.direction
            });
         });
     },

@@ -7,6 +7,7 @@ cc.Class({
     
     backToMain: function() {
         cc.director.loadScene('main');
+        window.socket.disconnect();
     },
     
     onLoad: function () {
