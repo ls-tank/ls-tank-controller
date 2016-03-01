@@ -1,5 +1,6 @@
 'use strict';
 
 exports.getUid = function () {
-    return window.localStorage.getItem('uid');
+    // return window.localStorage.getItem('uid');
+    return 'lisheng';
 };

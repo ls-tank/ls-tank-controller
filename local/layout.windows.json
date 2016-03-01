@@ -37,7 +37,7 @@
             "docks": [
               {
                 "active": 0,
-                "height": 516,
+                "height": 502,
                 "panels": [
                   "scene.panel"
                 ],
@@ -46,7 +46,7 @@
               },
               {
                 "active": 0,
-                "height": 225,
+                "height": 239,
                 "panels": [
                   "console.panel",
                   "timeline.panel"
@@ -75,9 +75,9 @@
         "type": "dock"
       }
     },
-    "editor-window-1456717364137": {
-      "x": 147,
-      "y": 121,
+    "editor-window-1456827593810": {
+      "x": 162,
+      "y": 89,
       "width": 1211,
       "height": 590
     }

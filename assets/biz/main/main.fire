@@ -400,7 +400,7 @@
     "_ignoreAnchorPointForPosition": false,
     "_tag": -1,
     "_opacityModifyRGB": false,
-    "_id": "fefe4BAKY9GKahX4cGqxCfg",
+    "_id": "7ca1dVBnQxHoL3XXl9iuaja",
     "_active": true,
     "_components": [
       {
@@ -700,6 +700,6 @@
       "height": 720
     },
     "_fitWidth": true,
-    "_fitHeight": true
+    "_fitHeight": false
   }
 ]

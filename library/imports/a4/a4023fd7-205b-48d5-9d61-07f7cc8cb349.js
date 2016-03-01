@@ -1,14 +1,17 @@
-"use strict";
+'use strict';
+
+var bizSocket = require('../../socket/biz-socket');
 
 cc.Class({
-    "extends": cc.Component,
+    'extends': cc.Component,
 
     properties: {},
 
-    // use this for initialization
     onLoad: function onLoad() {},
 
     fire: function fire() {
-        alert(1);
+        bizSocket.emit('c-fire', {
+            fire: 'fire'
+        });
     }
 });

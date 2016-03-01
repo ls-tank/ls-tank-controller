@@ -1,13 +1,15 @@
 'use strict';
 
+var bizSocket = require('../../socket/biz-socket');
+
 cc.Class({
     'extends': cc.Component,
 
     properties: {},
 
     backToMain: function backToMain() {
+        bizSocket.disconnect();
         cc.director.loadScene('main');
-        window.socket.disconnect();
     },
 
     onLoad: function onLoad() {},

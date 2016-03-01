@@ -1,3 +1,5 @@
+var bizSocket = require('../../socket/biz-socket');
+
 cc.Class({
     extends: cc.Component,
 
@@ -6,8 +8,8 @@ cc.Class({
     },
     
     backToMain: function() {
+        bizSocket.disconnect();
         cc.director.loadScene('main');
-        window.socket.disconnect();
     },
     
     onLoad: function () {

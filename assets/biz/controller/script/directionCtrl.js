@@ -1,5 +1,4 @@
-var sio = require('../../../lib/socket.io.js');
-var utils = require('../../../utils/');
+var bizSocket = require('../../socket/biz-socket');
 
 cc.Class({
     extends: cc.Component,
@@ -14,13 +13,11 @@ cc.Class({
 
     onLoad: function () {
         this.setTouchControl();
-        
         this.node.on('direction', function (event) {
            console.log(event.detail.direction);
-           window.socket.emit('c-direction', {
-               uid: utils.getUid(),
-               direction: event.detail.direction
-           });
+            bizSocket.emit('c-direction', {
+                direction: event.detail.direction
+            });
         });
     },
     
