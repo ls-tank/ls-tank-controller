@@ -3,7 +3,7 @@
 var socketIO = require('../../lib/socket.io');
 
 var BizSocket = (function () {
-    var URI = '10.10.1.29:3000/tankControllers';
+    var URI = '10.10.1.31:3000/tankControllers';
     var UID = 'lisheng';
 
     var ws = socketIO(URI + '?uid=' + UID);
