@@ -1,4 +1,6 @@
+var uid = new Date().getTime().toString();
+
 exports.getUid = function () {
-    // return window.localStorage.getItem('uid');
-    return 'lisheng';
+    return uid;
+    // return 'lisheng';
 };

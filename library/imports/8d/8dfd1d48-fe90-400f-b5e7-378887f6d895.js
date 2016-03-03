@@ -10,16 +10,20 @@ cc.Class({
             'default': null,
             type: cc.Node
         },
-        followSpeed: 0
+        followSpeed: 0,
+        direction: 'STOP'
     },
 
     onLoad: function onLoad() {
+        var self = this;
         this.setTouchControl();
         this.node.on('direction', function (event) {
-            console.log(event.detail.direction);
-            bizSocket.emit('c-direction', {
-                direction: event.detail.direction
-            });
+            if (self.direction !== event.detail.direction) {
+                self.direction = event.detail.direction;
+                bizSocket.emit('c-direction', {
+                    direction: self.direction
+                });
+            }
         });
     },
 
@@ -47,16 +51,35 @@ cc.Class({
         return Math.sqrt(pos.x * pos.x + pos.y * pos.y);
     },
 
-    onUpdateDirection: function onUpdateDirection(position) {
+    onUpdateDirection: function onUpdateDirection(length) {
+        var direction;
+
+        if (length <= 10) {
+            return this.node.emit('direction', {
+                direction: 'STOP'
+            });
+        }
+
         if (this.angle < 0) this.angle = this.angle + 360;
 
-        if (this.angle > -45 && this.angle <= 45) this.direction = 'RIGHT';
-        if (this.angle > 45 && this.angle <= 135) this.direction = 'UP';
-        if (this.angle > 135 && this.angle <= 225) this.direction = 'LEFT';
-        if (this.angle > 225 && this.angle <= 315) this.direction = 'DOWN';
+        if (this.angle >= 0 && this.angle <= 45 || this.angle > 315 && this.angle <= 360) {
+            direction = 'RIGHT';
+        } else if (this.angle > 45 && this.angle <= 135) {
+            direction = 'UP';
+        } else if (this.angle > 135 && this.angle <= 225) {
+            direction = 'LEFT';
+        } else if (this.angle > 225 && this.angle <= 315) {
+            direction = 'DOWN';
+        }
 
+        return this.node.emit('direction', {
+            direction: direction
+        });
+    },
+
+    onStop: function onStop() {
         this.node.emit('direction', {
-            direction: this.direction
+            direction: 'STOP'
         });
     },
 
@@ -73,12 +96,9 @@ cc.Class({
     onTouchMoved: function onTouchMoved(touch, event) {
         var target = this.follower;
         var touchLoc = touch.getLocation();
-
         var locInNode = this.node.convertToNodeSpaceAR(touchLoc);
         this.__getAngle(locInNode);
         this.__getRadians(locInNode);
-        this.onUpdateDirection(locInNode);
-
         var tmpLength = this.__getLength(locInNode);
 
         if (tmpLength < 103) {
@@ -88,11 +108,14 @@ cc.Class({
             var y = Math.sin(this.radians) * 103;
             target.setPosition(cc.p(x, y));
         }
+
+        this.onUpdateDirection(tmpLength);
     },
 
     onTouchEnded: function onTouchEnded(touch, event) {
         var target = this.follower;
         target.setPosition({ x: 0, y: 0 });
+        this.onStop();
     },
 
     update: function update(dt) {}

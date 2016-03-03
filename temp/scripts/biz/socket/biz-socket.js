@@ -4,10 +4,11 @@ cc._RFpush(module, '462a1boOOpB3pCoZ/FvwZch', 'biz-socket');
 'use strict';
 
 var socketIO = require('../../lib/socket.io');
+var utils = require('../../utils/index');
 
 var BizSocket = (function () {
-    var URI = '10.10.1.31:3000/tankControllers';
-    var UID = 'lisheng';
+    var URI = '10.10.1.7:3000/tankControllers';
+    var UID = utils.getUid();
 
     var ws = socketIO(URI + '?uid=' + UID);
 
@@ -19,7 +20,9 @@ var BizSocket = (function () {
         ws.emit('c-leave');
     };
 
-    var on = ws.on.bind(ws);
+    var on = function on(eventName, callback) {
+        ws.on(eventName, callback);
+    };
 
     var emit = function emit(eventName, eventObj) {
         ws.emit(eventName, {
