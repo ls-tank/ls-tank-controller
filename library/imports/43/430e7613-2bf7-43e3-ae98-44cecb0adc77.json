@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "money200k",
+    "texture": "a9055512-ef7b-451f-b848-d1ebe1646382",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      211,
+      226
+    ],
+    "offset": [
+      0.5,
+      -0.5
+    ],
+    "originalSize": [
+      214,
+      227
+    ],
+    "rotated": 0
+  }
+}

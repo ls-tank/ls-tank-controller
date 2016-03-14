@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "next",
+    "texture": "9ca19d57-dd81-45c8-8fee-800828ac45de",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      70,
+      57
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      70,
+      57
+    ],
+    "rotated": 0
+  }
+}

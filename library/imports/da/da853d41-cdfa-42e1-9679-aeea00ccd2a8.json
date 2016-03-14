@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "itembuy1",
+    "texture": "7eebf692-bfa5-47ac-aef0-f0985dc08586",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      206,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      206,
+      63
+    ],
+    "rotated": 0
+  }
+}

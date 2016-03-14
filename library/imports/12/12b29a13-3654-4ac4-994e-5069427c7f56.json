@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "strenthen",
+    "texture": "fb034580-20d2-4dfd-9e31-5f3f1696a57a",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      161,
+      78
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      161,
+      78
+    ],
+    "rotated": 0
+  }
+}

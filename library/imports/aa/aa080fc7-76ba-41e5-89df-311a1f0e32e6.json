@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "equip_bg",
+    "texture": "13cad3f3-bedc-4b7b-abdb-eef3e8df3c06",
+    "atlas": "",
+    "rect": [
+      32,
+      33,
+      166,
+      212
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      230,
+      276
+    ],
+    "rotated": 0
+  }
+}

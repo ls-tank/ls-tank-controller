@@ -9,7 +9,7 @@ cc.Class({
             type: cc.Node
         },
         followSpeed: 0,
-        direction: 'STOP'
+        direction: 4
     },
 
     onLoad: function () {
@@ -54,20 +54,20 @@ cc.Class({
         
         if (length <= 10) {
             return this.node.emit('direction', {
-                direction: 'STOP'
+                direction: 4
             });   
         }
         
         if (this.angle < 0) this.angle = this.angle + 360;
         
         if (this.angle >= 0 && this.angle <= 45 || this.angle > 315 && this.angle <= 360) { 
-            direction = 'RIGHT';
+            direction = 1;
         } else if (this.angle > 45 && this.angle <= 135) {
-            direction = 'UP';
+            direction = 0;
         } else if (this.angle > 135 && this.angle <= 225) {
-            direction = 'LEFT';
+            direction = 3;
         } else if (this.angle > 225 && this.angle <= 315) {
-            direction = 'DOWN';
+            direction = 2;
         }
         
         return this.node.emit('direction', {
@@ -77,7 +77,7 @@ cc.Class({
     
     onStop: function () {
         this.node.emit('direction', {
-            direction: 'STOP'
+            direction: 4
         });
     },
     

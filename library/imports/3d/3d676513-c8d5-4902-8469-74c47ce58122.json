@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "armorLable",
+    "texture": "f3807dc9-33eb-44c2-a870-26e49539d7a1",
+    "atlas": "",
+    "rect": [
+      0,
+      3,
+      110,
+      52
+    ],
+    "offset": [
+      -1.5,
+      -1.5
+    ],
+    "originalSize": [
+      113,
+      55
+    ],
+    "rotated": 0
+  }
+}

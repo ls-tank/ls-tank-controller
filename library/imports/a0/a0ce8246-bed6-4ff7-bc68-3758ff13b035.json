@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "upgrade",
+    "texture": "f4e48153-2863-4d2a-8fac-6f1d966e480b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      357,
+      99
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      357,
+      99
+    ],
+    "rotated": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Button_JT_03",
+    "texture": "c86885b5-4fcc-4c80-8277-581f929748ab",
+    "atlas": "",
+    "rect": [
+      2,
+      0,
+      73,
+      74
+    ],
+    "offset": [
+      1,
+      1
+    ],
+    "originalSize": [
+      75,
+      76
+    ],
+    "rotated": 0
+  }
+}

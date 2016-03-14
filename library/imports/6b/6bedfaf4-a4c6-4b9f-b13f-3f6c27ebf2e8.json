@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "menu_back_S",
+    "texture": "5b8ba136-1d95-48b1-81c7-d78906b84f35",
+    "atlas": "",
+    "rect": [
+      5,
+      1,
+      87,
+      94
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      96,
+      96
+    ],
+    "rotated": 0
+  }
+}
