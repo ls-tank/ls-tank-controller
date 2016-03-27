@@ -11,7 +11,7 @@
             "docks": [
               {
                 "active": 0,
-                "height": 370.5,
+                "height": 371,
                 "panels": [
                   "hierarchy.panel"
                 ],
@@ -20,7 +20,7 @@
               },
               {
                 "active": 0,
-                "height": 370.5,
+                "height": 370,
                 "panels": [
                   "assets.panel"
                 ],
@@ -42,7 +42,7 @@
                   "scene.panel"
                 ],
                 "type": "panel",
-                "width": 819
+                "width": 700
               },
               {
                 "active": 0,
@@ -52,13 +52,13 @@
                   "timeline.panel"
                 ],
                 "type": "panel",
-                "width": 819
+                "width": 700
               }
             ],
             "height": 744,
             "row": false,
             "type": "dock",
-            "width": 819
+            "width": 700
           },
           {
             "active": 0,
@@ -67,33 +67,11 @@
               "inspector.panel"
             ],
             "type": "panel",
-            "width": 338
+            "width": 457
           }
         ],
         "no-collapse": true,
         "row": true,
-        "type": "dock"
-      }
-    },
-    "editor-window-1457960977643": {
-      "x": 470,
-      "y": 178,
-      "width": 500,
-      "height": 522,
-      "layout": {
-        "docks": [
-          {
-            "active": 0,
-            "height": 500,
-            "panels": [
-              "sprite-editor.panel"
-            ],
-            "type": "panel",
-            "width": 500
-          }
-        ],
-        "no-collapse": true,
-        "row": false,
         "type": "dock"
       }
     }
