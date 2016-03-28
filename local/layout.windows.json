@@ -37,28 +37,28 @@
             "docks": [
               {
                 "active": 0,
-                "height": 502,
+                "height": 497,
                 "panels": [
                   "scene.panel"
                 ],
                 "type": "panel",
-                "width": 700
+                "width": 760
               },
               {
                 "active": 0,
-                "height": 239,
+                "height": 244,
                 "panels": [
                   "console.panel",
                   "timeline.panel"
                 ],
                 "type": "panel",
-                "width": 700
+                "width": 760
               }
             ],
             "height": 744,
             "row": false,
             "type": "dock",
-            "width": 700
+            "width": 760
           },
           {
             "active": 0,
@@ -67,13 +67,25 @@
               "inspector.panel"
             ],
             "type": "panel",
-            "width": 457
+            "width": 397
           }
         ],
         "no-collapse": true,
         "row": true,
         "type": "dock"
       }
+    },
+    "editor-window-1459155056700": {
+      "x": 154,
+      "y": 163,
+      "width": 1253,
+      "height": 683
+    },
+    "worker": {
+      "x": 520,
+      "y": 278,
+      "width": 400,
+      "height": 300
     }
   }
 }

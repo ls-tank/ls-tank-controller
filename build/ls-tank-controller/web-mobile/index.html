@@ -1,64 +1,46 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Cocos Creator |ls-tank-controller</title><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="format-detection" content="telephone=no"><meta name="full-screen" content="yes"><meta name="screen-orientation" content="portrait"><meta name="x5-fullscreen" content="true"><meta name="360-fullscreen" content="true"><style>html {
-      -ms-touch-action: none;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
 
-    body {
-      text-align: center;
-      background-color: black;
-      font-family: Helvetica, Verdana, Arial, sans-serif;
-    }
+  <title>Cocos Creator | ls-tank-controller</title>
 
-    body, canvas, div {
-      position: absolute;
-      display: block;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi"/>
 
-    a:link, a:visited {
-      color: #666;
-    }
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
 
-    a:active, a:hover {
-      color: #666;
-    }
+  <meta name="full-screen" content="yes"/>
+  <meta name="screen-orientation" content="landscape"/>
+  <meta name="x5-orientation" content="landscape">
+  <meta name="browsermode" content="application">
+  <meta name="x5-page-mode" content="app">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
 
-    p.header {
-      font-size: small;
-    }
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
 
-    p.footer {
-      font-size: x-small;
-    }
+  <link rel="stylesheet" type="text/css" href="style.css"/>
 
-    body {
-      cursor: default;
-      color: #888;
-      background-color: #333;
-
-      display: flex;
-      flex-direction: column;
-
-      padding: 0px;
-      border: 0px;
-      margin: 0px;
-    }
-
-    body, canvas, div {
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      -ms-user-select: none;
-      -khtml-user-select: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-
-    body, #GameDiv, #splash {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-
-    #splash {
-      background: #171717 url(./splash.png) no-repeat center;
-    }</style></head><body><div id="GameDiv" class="wrapper"><canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas><div id="splash"></div></div><script src="src/settings.js" charset="utf-8"></script><script src="cocos2d-js-min.js" charset="utf-8"></script><script src="src/project.js" charset="utf-8"></script><script src="main.js" charset="utf-8"></script></body></html>
+</head>
+<body>
+<div id="GameDiv" class="wrapper">
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+</div>
+<script src="src/settings.js" charset="utf-8"></script>
+<script src="cocos2d-js-min.js" charset="utf-8"></script>
+<script src="src/project.js" charset="utf-8"></script>
+<script src="main.js" charset="utf-8"></script>
+</body>
+</html>

@@ -1,8 +1,13 @@
 {
   "excludeScenes": [],
+  "orientation": {
+    "landscapeLeft": true,
+    "landscapeRight": true,
+    "portrait": false,
+    "upsideDown": false
+  },
   "packageName": "org.cocos2d.ls-tank-controller",
-  "platform": "web-mobile",
-  "startScene": "b57876d3-e5c2-4d59-8404-637795533a77",
-  "startSceneUuid": "81eb2f26-cd68-476a-aed0-e385bccccbb6",
-  "title": "ls-tank-controller"
+  "startScene": "846107a1-13b1-4d03-8066-99ef7af5bc65",
+  "title": "ls-tank-controller",
+  "webOrientation": "landscape"
 }
