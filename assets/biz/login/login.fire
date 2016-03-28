@@ -1726,7 +1726,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "nickname",
+    "_name": "username",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {
@@ -1920,7 +1920,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "nickname",
+    "_name": "password",
     "_objFlags": 0,
     "_opacity": 255,
     "_color": {

@@ -65,6 +65,7 @@ cc.Class({
             password: this.password.string
         }).then(function(data) {
                 user.init(data.data);
+                cc.director.loadScene('Main');
             }, function(err) {
                 alert(err.data);
             });
