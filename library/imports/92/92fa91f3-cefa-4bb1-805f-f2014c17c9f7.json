@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "trackwheel4",
+    "texture": "a9722746-a324-4cce-a583-9bc54fefb07b",
+    "atlas": "",
+    "rect": [
+      6,
+      6,
+      126,
+      104
+    ],
+    "offset": [
+      2,
+      -1.5
+    ],
+    "originalSize": [
+      134,
+      113
+    ],
+    "rotated": 0
+  }
+}

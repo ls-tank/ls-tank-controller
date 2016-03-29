@@ -1,13 +1,13 @@
 var sio = require('socket.io');
+var User = require('user');
 
 var Connect = (function () {
     var URI = '10.10.1.38:3000/tankControllers';
-    var UID = new Date().getTime().toString();
 
     var ws;
 
     var connect = function connect() {
-        ws = sio(URI + '?uid=' + UID);
+        ws = sio(URI + '?uid=' + User.Id);
     };
 
     var disconnect = function disconnect() {
@@ -20,7 +20,7 @@ var Connect = (function () {
 
     var emit = function emit(eventName, eventObj) {
         ws.emit(eventName, {
-            uid: UID,
+            uid: User.Id,
             data: eventObj
         });
     };

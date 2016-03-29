@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "armor1",
+    "texture": "f8d7c8f3-e6fa-4623-8191-7e73371ec55d",
+    "atlas": "",
+    "rect": [
+      8,
+      12,
+      124,
+      98
+    ],
+    "offset": [
+      3,
+      -4.5
+    ],
+    "originalSize": [
+      134,
+      113
+    ],
+    "rotated": 0
+  }
+}

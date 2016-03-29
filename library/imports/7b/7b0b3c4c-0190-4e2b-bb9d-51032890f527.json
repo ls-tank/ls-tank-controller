@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "canon3",
+    "texture": "e7dc7c8f-e88f-4fa9-852d-d6a11e575332",
+    "atlas": "",
+    "rect": [
+      4,
+      5,
+      127,
+      102
+    ],
+    "offset": [
+      0.5,
+      0.5
+    ],
+    "originalSize": [
+      134,
+      113
+    ],
+    "rotated": 0
+  }
+}
