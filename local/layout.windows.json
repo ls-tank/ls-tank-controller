@@ -81,27 +81,11 @@
       "width": 1253,
       "height": 683
     },
-    "editor-window-1459251323330": {
-      "x": 332,
-      "y": 210,
-      "width": 633,
-      "height": 624,
-      "layout": {
-        "docks": [
-          {
-            "active": 0,
-            "height": 602,
-            "panels": [
-              "sprite-editor.panel"
-            ],
-            "type": "panel",
-            "width": 633
-          }
-        ],
-        "no-collapse": true,
-        "row": false,
-        "type": "dock"
-      }
+    "worker": {
+      "x": 520,
+      "y": 278,
+      "width": 400,
+      "height": 300
     }
   }
 }

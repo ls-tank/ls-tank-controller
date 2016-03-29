@@ -43,6 +43,10 @@ cc.Class({
         Connect.connect();
         cc.director.loadScene('Controller');
     },
+    
+    toEquipHandler: function() {
+        cc.director.loadScene('Equip');
+    },
 
     update: function(dt) {
 

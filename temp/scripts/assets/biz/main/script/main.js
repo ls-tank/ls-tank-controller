@@ -45,6 +45,10 @@ cc.Class({
         cc.director.loadScene('Controller');
     },
 
+    toEquipHandler: function toEquipHandler() {
+        cc.director.loadScene('Equip');
+    },
+
     update: function update(dt) {}
 });
 

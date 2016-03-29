@@ -79,7 +79,7 @@
         "__id__": 14
       },
       {
-        "__id__": 22
+        "__id__": 23
       },
       {
         "__id__": 12
@@ -104,7 +104,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 24
+        "__id__": 25
       }
     ],
     "_prefab": null
@@ -237,7 +237,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 23
+        "__id__": 24
       }
     ],
     "_prefab": null
@@ -527,7 +527,7 @@
       "__id__": 14
     },
     "cloudMask": {
-      "__id__": 21
+      "__id__": 22
     }
   },
   {
@@ -580,7 +580,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 20
+        "__id__": 21
       }
     ],
     "_prefab": null
@@ -768,7 +768,11 @@
     "duration": 0.1,
     "pressedSprite": null,
     "hoverSprite": null,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 20
+      }
+    ],
     "_N$interactable": true,
     "_N$normalColor": {
       "__type__": "cc.Color",
@@ -791,6 +795,14 @@
     "_N$target": {
       "__id__": 15
     }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 12
+    },
+    "component": "main",
+    "handler": "toEquipHandler"
   },
   {
     "__type__": "cc.Widget",
@@ -818,7 +830,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 22
+      "__id__": 23
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -886,7 +898,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 21
+        "__id__": 22
       }
     ],
     "_prefab": null
