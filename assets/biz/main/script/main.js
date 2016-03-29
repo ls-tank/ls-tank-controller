@@ -1,3 +1,5 @@
+var Connect = require('connect');
+
 var cloudAction = cc.fadeOut(1.0);
 
 var btnAction = cc.sequence(
@@ -35,6 +37,11 @@ cc.Class({
         // setTimeout(function() {
         //     self.toEquipBtn.runAction(btnAction);
         // }, 1000);
+    },
+    
+    toPlayHandler: function() {
+        Connect.connect();
+        cc.director.loadScene('Controller');
     },
 
     update: function(dt) {

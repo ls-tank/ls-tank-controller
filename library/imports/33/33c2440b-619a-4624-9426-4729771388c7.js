@@ -1,23 +1,25 @@
+var Connect = require('connect');
+
 var cloudAction = cc.fadeOut(1.0);
 
 var btnAction = cc.sequence(cc.scaleTo(0.25, 0.8, 1.4).easing(cc.easeInOut(3.0)), cc.scaleTo(0.25, 1, 1).easing(cc.easeInOut(3.0)));
 
 cc.Class({
-    "extends": cc.Component,
+    'extends': cc.Component,
 
     properties: {
         toPlayBtn: {
-            "default": null,
+            'default': null,
             type: cc.Node
         },
 
         toEquipBtn: {
-            "default": null,
+            'default': null,
             type: cc.Node
         },
 
         cloudMask: {
-            "default": null,
+            'default': null,
             type: cc.Sprite
         }
     },
@@ -32,6 +34,11 @@ cc.Class({
         // setTimeout(function() {
         //     self.toEquipBtn.runAction(btnAction);
         // }, 1000);
+    },
+
+    toPlayHandler: function toPlayHandler() {
+        Connect.connect();
+        cc.director.loadScene('Controller');
     },
 
     update: function update(dt) {}

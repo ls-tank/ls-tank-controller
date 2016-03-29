@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.SceneAsset",
-    "_name": "login",
+    "_name": "Login",
     "_objFlags": 0,
     "scene": {
       "__id__": 1
@@ -548,7 +548,7 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "",
+    "_string": "lishengzxc",
     "editingDidBegan": [],
     "textChanged": [],
     "editingDidEnded": [],
@@ -667,7 +667,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": -107.5,
+      "x": 0,
       "y": 0
     },
     "_skewX": 0,
@@ -779,7 +779,7 @@
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
-      "x": 276,
+      "x": 381,
       "y": 0
     },
     "_skewX": 0,
@@ -975,7 +975,7 @@
     "isAlignOnce": false,
     "_alignFlags": 32,
     "_left": 0,
-    "_right": 260,
+    "_right": 155,
     "_top": 0,
     "_bottom": 0,
     "_isAbsLeft": true,
@@ -1045,7 +1045,7 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "",
+    "_string": "lishengzxc",
     "editingDidBegan": [],
     "textChanged": [],
     "editingDidEnded": [],
@@ -1109,7 +1109,7 @@
     },
     "_enabled": true,
     "isAlignOnce": false,
-    "_alignFlags": 8,
+    "_alignFlags": 16,
     "_left": 260,
     "_right": 0,
     "_top": 0,
