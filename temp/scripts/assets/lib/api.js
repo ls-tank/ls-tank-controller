@@ -14,13 +14,15 @@ var ajax = function ajax(type, url, data) {
             }
         });
     });
-
     return promise;
 };
 
 var api = {
     login: function login(data) {
         return ajax('POST', 'http://127.0.0.1:8123/api/login/', data);
+    },
+    register: function register(data) {
+        return ajax('POST', 'http://127.0.0.1:8123/api/register/', data);
     }
 };
 

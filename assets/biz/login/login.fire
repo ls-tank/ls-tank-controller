@@ -107,7 +107,7 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 59
+        "__id__": 61
       }
     ],
     "_prefab": null
@@ -1449,7 +1449,11 @@
     "_opacityModifyRGB": false,
     "_id": "f3a580jwc9B2rxZn5tYSHMb",
     "_active": true,
-    "_components": [],
+    "_components": [
+      {
+        "__id__": 60
+      }
+    ],
     "_prefab": null
   },
   {
@@ -2295,7 +2299,11 @@
     "duration": 0.1,
     "pressedSprite": null,
     "hoverSprite": null,
-    "clickEvents": [],
+    "clickEvents": [
+      {
+        "__id__": 59
+      }
+    ],
     "_N$interactable": true,
     "_N$normalColor": {
       "__type__": "cc.Color",
@@ -2317,6 +2325,32 @@
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 54
+    }
+  },
+  {
+    "__type__": "cc.ClickEvent",
+    "target": {
+      "__id__": 36
+    },
+    "component": "register",
+    "handler": "onRegisterBtnEnter"
+  },
+  {
+    "__type__": "52d7e1rhDZOOYDhJvdJ92n7",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 36
+    },
+    "_enabled": true,
+    "username": {
+      "__id__": 46
+    },
+    "password": {
+      "__id__": 51
+    },
+    "nickname": {
+      "__id__": 41
     }
   },
   {

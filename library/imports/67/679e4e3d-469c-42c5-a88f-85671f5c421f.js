@@ -59,7 +59,7 @@ cc.Class({
 
     onLoginBtnEnter: function onLoginBtnEnter() {
         api.login({
-            name: this.username.string,
+            username: this.username.string,
             password: this.password.string
         }).then(function (data) {
             user.init(data.data);

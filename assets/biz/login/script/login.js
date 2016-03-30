@@ -61,14 +61,14 @@ cc.Class({
     
     onLoginBtnEnter: function() {
         api.login({
-            name: this.username.string, 
+            username: this.username.string, 
             password: this.password.string
         }).then(function(data) {
-                user.init(data.data);
-                cc.director.loadScene('Main');
-            }, function(err) {
-                alert(err.data);
-            });
+            user.init(data.data);
+            cc.director.loadScene('Main');
+        }, function(err) {
+            alert(err.data);
+        });
     },
     
     onCancelBtnToggle: function() {
