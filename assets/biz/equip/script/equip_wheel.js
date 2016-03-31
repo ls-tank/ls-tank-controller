@@ -30,6 +30,11 @@ cc.Class({
         this.wheelCost.string = wheel[level].cost;
     },
     
+    upgrade: function() {
+        user.tankWheel++;
+        this.setBodyLevel(user.tankWheel);
+    },
+    
     onLoad: function() {
         this.setwheelLevel(user.tankWheel);
     }

@@ -1,5 +1,7 @@
 function User(user) {
-    
+    this.tankBody = 0;
+    this.tankHead = 0;
+    this.tankWheel = 0;
 }
 
 User.prototype.init = function(user) {

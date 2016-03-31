@@ -34,6 +34,11 @@ cc.Class({
         this.headCost.string = head[level].cost;
     },
 
+    upgrade: function upgrade() {
+        user.tankHead++;
+        this.setBodyLevel(user.tankHead);
+    },
+
     onLoad: function onLoad() {
         this.setHeadLevel(user.tankHead);
     }

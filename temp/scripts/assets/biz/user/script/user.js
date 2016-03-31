@@ -2,7 +2,11 @@
 cc._RFpush(module, '43c66988rFH6b+xxyWSsbTi', 'user');
 // biz/user/script/user.js
 
-function User(user) {}
+function User(user) {
+    this.tankBody = 0;
+    this.tankHead = 0;
+    this.tankWheel = 0;
+}
 
 User.prototype.init = function (user) {
     this.id = user.Id;
