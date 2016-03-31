@@ -24,12 +24,13 @@ cc.Class({
     },
     
     setBodyLevel: function(level) {
-        this.body.spriteFrame = this.bodies[level]
+        level = level || 0;
+        this.body.spriteFrame = this.bodies[level];
         this.bodyDesc.string = body[level].desc;
         this.bodyCost.string = body[level].cost;
     },
     
     onLoad: function() {
-        this.setBodyLevel(1);
+        this.setBodyLevel(user.tankBody);
     }
 });

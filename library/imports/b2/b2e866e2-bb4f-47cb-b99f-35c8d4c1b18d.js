@@ -27,6 +27,18 @@ cc.Class({
         dead: {
             'default': null,
             type: cc.Label
+        },
+        head: {
+            'default': null,
+            type: cc.Component
+        },
+        body: {
+            'default': null,
+            type: cc.Component
+        },
+        wheel: {
+            'default': null,
+            type: cc.Component
         }
     },
 
@@ -48,6 +60,10 @@ cc.Class({
     onLoad: function onLoad() {
         this.initData();
         this.uiShow();
+
+        this.headComponent = this.head.getComponent('equip_head');
+        this.bodyComponent = this.body.getComponent('equip_body');
+        this.wheelComponent = this.wheel.getComponent('equip_wheel');
     },
 
     onBackHandler: function onBackHandler() {

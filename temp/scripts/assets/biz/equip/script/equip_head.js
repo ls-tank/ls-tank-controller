@@ -28,13 +28,14 @@ cc.Class({
     },
 
     setHeadLevel: function setHeadLevel(level) {
+        level = level || 0;
         this.head.spriteFrame = this.heads[level];
         this.headDesc.string = head[level].desc;
         this.headCost.string = head[level].cost;
     },
 
     onLoad: function onLoad() {
-        this.setHeadLevel(2);
+        this.setHeadLevel(user.tankHead);
     }
 });
 

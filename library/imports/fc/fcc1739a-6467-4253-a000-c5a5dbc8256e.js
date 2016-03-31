@@ -24,12 +24,13 @@ cc.Class({
     },
 
     setwheelLevel: function setwheelLevel(level) {
+        level = level || 0;
         this.wheel.spriteFrame = this.wheels[level];
         this.wheelDesc.string = wheel[level].desc;
         this.wheelCost.string = wheel[level].cost;
     },
 
     onLoad: function onLoad() {
-        this.setwheelLevel(2);
+        this.setwheelLevel(user.tankWheel);
     }
 });
