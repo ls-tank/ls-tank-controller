@@ -1,3 +1,7 @@
+"use strict";
+cc._RFpush(module, '1883asn6SJKXY50uNG7yIZv', 'equip_item');
+// biz/equip/script/equip_item.js
+
 var user = require('user');
 var tank = require('equip_data');
 
@@ -55,3 +59,5 @@ cc.Class({
         this.setLevel(user[this.equipType]);
     }
 });
+
+cc._RFpop();

@@ -11,7 +11,7 @@
             "docks": [
               {
                 "active": 0,
-                "height": 455,
+                "height": 248,
                 "panels": [
                   "hierarchy.panel"
                 ],
@@ -20,7 +20,7 @@
               },
               {
                 "active": 0,
-                "height": 286,
+                "height": 493,
                 "panels": [
                   "assets.panel"
                 ],
@@ -75,9 +75,9 @@
         "type": "dock"
       }
     },
-    "editor-window-1459428931148": {
-      "x": 160,
-      "y": 37,
+    "editor-window-1459516354087": {
+      "x": 191,
+      "y": 45,
       "width": 996,
       "height": 764
     },

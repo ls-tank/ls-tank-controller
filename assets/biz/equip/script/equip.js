@@ -27,7 +27,7 @@ cc.Class({
         dead: {
             default: null,
             type: cc.Label
-        },
+        }, 
         head: {
             default: null,
             type: cc.Component
@@ -39,6 +39,10 @@ cc.Class({
         wheel: {
             default: null,
             type: cc.Component
+        },
+        infoBox: {
+            default: null,
+            type: cc.Node
         }
     },
     
@@ -61,13 +65,29 @@ cc.Class({
         this.initData();
         this.uiShow();
         
-        this.headComponent = this.head.getComponent('equip_head');
-        this.bodyComponent = this.body.getComponent('equip_body');
-        this.wheelComponent = this.wheel.getComponent('equip_wheel');
+        this.headComponent = this.head.getComponent('equip_item');
+        this.bodyComponent = this.body.getComponent('equip_item');
+        this.wheelComponent = this.wheel.getComponent('equip_item');
         
+        this.onCost();
         
     },
     
+    onCost: function() {
+        var self = this;
+        
+        this.headComponent.node.on('cost', function(event) { self.initData() });
+        this.bodyComponent.node.on('cost', function(event) { self.initData() });
+        this.wheelComponent.node.on('cost', function(event) { self.initData() });
+    },
+    
+    onNoCost: function() {
+        var self = this;
+        
+        this.headComponent.node.on('nocost', function(event) { self.initData() });
+        this.bodyComponent.node.on('nocost', function(event) { self.initData() });
+        this.wheelComponent.node.on('nocost', function(event) { self.initData() });
+    },
     
     onBackHandler: function() {
         cc.director.loadScene('Main');

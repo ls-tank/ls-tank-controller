@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "unfinished",
+    "texture": "f144ef4c-56e1-431b-9c38-7ef4d3f391f7",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      39,
+      43
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      39,
+      43
+    ],
+    "rotated": 0
+  }
+}

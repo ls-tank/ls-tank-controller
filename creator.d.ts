@@ -1441,6 +1441,122 @@ declare module cc {
 		WARN_FOR_WEB_PAGE = 0,
 		ERROR_FOR_WEB_PAGE = 0,	
 	}		
+		/** !#en Class for animation data handling.
+		!#zh 动画剪辑，用于存储动画数据。 */
+		export class AnimationClip extends Asset {		
+		constructor();		
+		/** !#en Duration of this animation.
+		!#zh 动画的持续时间。 */
+		duration : number;		
+		/** !#en FrameRate of this animation.
+		!#zh 动画的帧速率。 */
+		sample : number;		
+		/** !#en Speed of this animation.
+		!#zh 动画的播放速度。 */
+		speed : number;		
+		/** !#en WrapMode of this animation.
+		!#zh 动画的循环模式。 */
+		wrapMode : WrapMode;		
+		/** !#en Curve data.
+		!#zh 曲线数据。 */
+		curveData : any;		
+		/** !#en Event data.
+		!#zh 事件数据。 */
+		events : any[];	
+	}		
+		/** !#en
+		The AnimationState gives full control over animation playback process.
+		In most cases the Animation Component is sufficient and easier to use. Use the AnimationState if you need full control.
+		!#zh
+		AnimationState 完全控制动画播放过程。<br/>
+		大多数情况下 动画组件 是足够和易于使用的。如果您需要更多的动画控制接口，请使用 AnimationState。 */
+		export class AnimationState extends AnimationNode {		
+		constructor();		
+		/**  
+		*/
+		AnimationState(clip : AnimationClip, name? : string) : AnimationState;		
+		/** !#en The clip that is being played by this animation state.
+		!#zh 此动画状态正在播放的剪辑。 */
+		clip : AnimationClip;		
+		/** !#en The name of the playing animation.
+		!#zh 动画的名字 */
+		name : string;	
+	}		
+		/** undefined */
+		export class Playable {		
+		constructor();		
+		/** !#en Is playing or paused in play mode?
+		!#zh 当前是否正在播放。 */
+		isPlaying : boolean;		
+		/** !#en Is currently paused? This can be true even if in edit mode(isPlaying == false).
+		!#zh 当前是否正在暂停 */
+		isPaused : boolean;		
+		/** !#en Play this animation.
+		!#zh 播放动画。 
+		*/
+		play() : void;		
+		/** !#en Stop this animation.
+		!#zh 停止动画播放。 
+		*/
+		stop() : void;		
+		/** !#en Pause this animation.
+		!#zh 暂停动画。 
+		*/
+		pause() : void;		
+		/** !#en Resume this animation.
+		!#zh 重新播放动画。 
+		*/
+		resume() : void;		
+		/** !#en Perform a single frame step.
+		!#zh 执行一帧动画。 
+		*/
+		step() : void;	
+	}	
+	/** !#en Specifies how time is treated when it is outside of the keyframe range of an Animation.
+	!#zh 动画使用的循环模式。 */
+	export enum WrapMode {		
+		Default = 0,
+		Normal = 0,
+		Reverse = 0,
+		Loop = 0,
+		LoopReverse = 0,
+		PingPong = 0,
+		PingPongReverse = 0,	
+	}		
+		/** !#en The abstract interface for all playing animation.
+		!#zh 所有播放动画的抽象接口。 */
+		export class AnimationNodeBase extends Playable {		
+		constructor();		
+		/** !#en The curves list.
+		!#zh 曲线列表。 */
+		curves : AnimCurve[];		
+		/** !#en The start delay which represents the number of seconds from an animation's start time to the start of
+		the active interval.
+		!#zh 延迟多少秒播放。 */
+		delay : number;		
+		/** !#en The animation's iteration count property.
+		
+		A real number greater than or equal to zero (including positive infinity) representing the number of times
+		to repeat the animation node.
+		
+		Values less than zero and NaN values are treated as the value 1.0 for the purpose of timing model
+		calculations.
+		
+		!#zh 迭代次数，指动画播放多少次后结束, normalize time。 如 2.5（2次半） */
+		repeatCount : number;		
+		/** !#en The iteration duration of this animation in seconds. (length)
+		!#zh 单次动画的持续时间，秒。 */
+		duration : number;		
+		/** !#en The animation's playback speed. 1 is normal playback speed.
+		!#zh 播放速率。 */
+		speed : number;		
+		/** !#en Wrapping mode of the playing animation.
+		!#zh 动画循环方式。 */
+		wrapMode : WrapMode;		
+		/** !#en The current time of this animation in seconds.
+		!#zh 动画当前的时间，秒。 */
+		time : number;	
+	}		
 		/** !#en Base class cc.Action for action classes.
 		!#zh Action 类是所有动作类型的基类。 */
 		export class Action {		
@@ -1777,122 +1893,6 @@ declare module cc {
 		!#zh 停止所有音乐和音效的播放。 
 		*/
 		end() : void;	
-	}		
-		/** !#en Class for animation data handling.
-		!#zh 动画剪辑，用于存储动画数据。 */
-		export class AnimationClip extends Asset {		
-		constructor();		
-		/** !#en Duration of this animation.
-		!#zh 动画的持续时间。 */
-		duration : number;		
-		/** !#en FrameRate of this animation.
-		!#zh 动画的帧速率。 */
-		sample : number;		
-		/** !#en Speed of this animation.
-		!#zh 动画的播放速度。 */
-		speed : number;		
-		/** !#en WrapMode of this animation.
-		!#zh 动画的循环模式。 */
-		wrapMode : WrapMode;		
-		/** !#en Curve data.
-		!#zh 曲线数据。 */
-		curveData : any;		
-		/** !#en Event data.
-		!#zh 事件数据。 */
-		events : any[];	
-	}		
-		/** !#en
-		The AnimationState gives full control over animation playback process.
-		In most cases the Animation Component is sufficient and easier to use. Use the AnimationState if you need full control.
-		!#zh
-		AnimationState 完全控制动画播放过程。<br/>
-		大多数情况下 动画组件 是足够和易于使用的。如果您需要更多的动画控制接口，请使用 AnimationState。 */
-		export class AnimationState extends AnimationNode {		
-		constructor();		
-		/**  
-		*/
-		AnimationState(clip : AnimationClip, name? : string) : AnimationState;		
-		/** !#en The clip that is being played by this animation state.
-		!#zh 此动画状态正在播放的剪辑。 */
-		clip : AnimationClip;		
-		/** !#en The name of the playing animation.
-		!#zh 动画的名字 */
-		name : string;	
-	}		
-		/** undefined */
-		export class Playable {		
-		constructor();		
-		/** !#en Is playing or paused in play mode?
-		!#zh 当前是否正在播放。 */
-		isPlaying : boolean;		
-		/** !#en Is currently paused? This can be true even if in edit mode(isPlaying == false).
-		!#zh 当前是否正在暂停 */
-		isPaused : boolean;		
-		/** !#en Play this animation.
-		!#zh 播放动画。 
-		*/
-		play() : void;		
-		/** !#en Stop this animation.
-		!#zh 停止动画播放。 
-		*/
-		stop() : void;		
-		/** !#en Pause this animation.
-		!#zh 暂停动画。 
-		*/
-		pause() : void;		
-		/** !#en Resume this animation.
-		!#zh 重新播放动画。 
-		*/
-		resume() : void;		
-		/** !#en Perform a single frame step.
-		!#zh 执行一帧动画。 
-		*/
-		step() : void;	
-	}	
-	/** !#en Specifies how time is treated when it is outside of the keyframe range of an Animation.
-	!#zh 动画使用的循环模式。 */
-	export enum WrapMode {		
-		Default = 0,
-		Normal = 0,
-		Reverse = 0,
-		Loop = 0,
-		LoopReverse = 0,
-		PingPong = 0,
-		PingPongReverse = 0,	
-	}		
-		/** !#en The abstract interface for all playing animation.
-		!#zh 所有播放动画的抽象接口。 */
-		export class AnimationNodeBase extends Playable {		
-		constructor();		
-		/** !#en The curves list.
-		!#zh 曲线列表。 */
-		curves : AnimCurve[];		
-		/** !#en The start delay which represents the number of seconds from an animation's start time to the start of
-		the active interval.
-		!#zh 延迟多少秒播放。 */
-		delay : number;		
-		/** !#en The animation's iteration count property.
-		
-		A real number greater than or equal to zero (including positive infinity) representing the number of times
-		to repeat the animation node.
-		
-		Values less than zero and NaN values are treated as the value 1.0 for the purpose of timing model
-		calculations.
-		
-		!#zh 迭代次数，指动画播放多少次后结束, normalize time。 如 2.5（2次半） */
-		repeatCount : number;		
-		/** !#en The iteration duration of this animation in seconds. (length)
-		!#zh 单次动画的持续时间，秒。 */
-		duration : number;		
-		/** !#en The animation's playback speed. 1 is normal playback speed.
-		!#zh 播放速率。 */
-		speed : number;		
-		/** !#en Wrapping mode of the playing animation.
-		!#zh 动画循环方式。 */
-		wrapMode : WrapMode;		
-		/** !#en The current time of this animation in seconds.
-		!#zh 动画当前的时间，秒。 */
-		time : number;	
 	}		
 		/** Particle System base class. <br/>
 		Attributes of a Particle System:<br/>
@@ -2844,157 +2844,433 @@ declare module cc {
 		/** Minimum priority level for user scheduling. */
 		PRIORITY_NON_SYSTEM : number;	
 	}		
-		/** Render the TMX layer. */
+		/** !#en Render the TMX layer.
+		!#zh 渲染 TMX layer。 */
 		export class TiledLayer extends _SGComponent {		
-		/** Gets the layer name 
+		/** !#en Gets the layer name.
+		!#zh 获取层的名称。
+		
+		@example 
+		```js
+		var layerName = tiledLayer.getLayerName();
+		cc.log(layerName);
+		``` 
 		*/
 		getLayerName() : string;		
-		/** Set the layer name 
+		/** !#en Set the layer name.
+		!#zh 设置层的名称
+		
+		@example 
+		```js
+		tiledLayer.setLayerName("New Layer");
+		``` 
 		*/
 		SetLayerName(layerName : string) : void;		
-		/** Return the value for the specific property name 
+		/** !#en Return the value for the specific property name.
+		!#zh 获取指定属性名的值。
+		
+		@example 
+		```js
+		var property = tiledLayer.getProperty("info");
+		cc.log(property);
+		``` 
 		*/
 		getProperty(propertyName : string) : any;		
-		/** Returns the position in pixels of a given tile coordinate
-		@param pos position or x 
+		/** !#en Returns the position in pixels of a given tile coordinate.
+		!#zh 获取指定 tile 的像素坐标。
+		@param pos position or x
+		
+		@example 
+		```js
+		var pos = tiledLayer.getPositionAt(cc.v2(0, 0));
+		cc.log("Pos: " + pos);
+		var pos = tiledLayer.getPositionAt(0, 0);
+		cc.log("Pos: " + pos);
+		``` 
 		*/
 		getPositionAt(pos : Vec2|number, y? : number) : Vec2;		
-		/** Removes a tile at given tile coordinate
-		@param pos position or x 
+		/** !#en Removes a tile at given tile coordinate.
+		!#zh 删除指定坐标上的 tile。
+		@param pos position or x
+		
+		@example 
+		```js
+		tiledLayer.removeTileAt(cc.v2(0, 0));
+		tiledLayer.removeTileAt(0, 0);
+		``` 
 		*/
 		removeTileAt(pos : Vec2|number, y? : number) : void;		
-		/** <p>Sets the tile gid (gid = tile global id) at a given tile coordinate.<br />
+		/** !#en
+		Sets the tile gid (gid = tile global id) at a given tile coordinate.<br />
 		The Tile GID can be obtained by using the method "tileGIDAt" or by using the TMX editor . Tileset Mgr +1.<br />
-		If a tile is already placed at that position, then it will be removed.</p>
+		If a tile is already placed at that position, then it will be removed.
+		!#zh
+		设置给定坐标的 tile 的 gid (gid = tile 全局 id)，
+		tile 的 GID 可以使用方法 “tileGIDAt” 来获得。<br />
+		如果一个 tile 已经放在那个位置，那么它将被删除。
 		@param posOrX position or x
-		@param flagsOrY flags or y 
+		@param flagsOrY flags or y
+		
+		@example 
+		```js
+		tiledLayer.setTileGID(1001, 10, 10, 1)
+		``` 
 		*/
 		setTileGID(gid : number, posOrX : Vec2|number, flagsOrY : number, flags? : number) : void;		
-		/** Returns the tile gid at a given tile coordinate. <br />
+		/** !#en
+		Returns the tile gid at a given tile coordinate. <br />
 		if it returns 0, it means that the tile is empty. <br />
 		This method requires the the tile map has not been previously released (eg. don't call layer.releaseMap())<br />
-		@param pos or x 
+		!#zh
+		通过给定的 tile 坐标、flags（可选）返回 tile 的 GID. <br />
+		如果它返回 0，则表示该 tile 为空。<br />
+		该方法要求 tile 地图之前没有被释放过(如：没有调用过layer.releaseMap()).
+		@param pos or x
+		
+		@example 
+		```js
+		var tileGid = tiledLayer.getTileGIDAt(0, 0);
+		``` 
 		*/
 		getTileGIDAt(pos : Vec2|number, y? : number) : number;		
-		/** <p>Returns the tile (_ccsg.Sprite) at a given a tile coordinate. <br/>
+		/** !#en
+		Returns the tile (_ccsg.Sprite) at a given a tile coordinate. <br/>
 		The returned _ccsg.Sprite will be already added to the _ccsg.TMXLayer. Don't add it again.<br/>
 		The _ccsg.Sprite can be treated like any other _ccsg.Sprite: rotated, scaled, translated, opacity, color, etc. <br/>
 		You can remove either by calling: <br/>
 		- layer.removeChild(sprite, cleanup); <br/>
-		- or layer.removeTileAt(ccp(x,y)); </p>
-		@param pos or x 
+		- or layer.removeTileAt(ccp(x,y));
+		!#zh
+		通过指定的 tile 坐标获取对应的 tile(Sprite)。 返回的 tile(Sprite) 应是已经添加到 TMXLayer，请不要重复添加。<br/>
+		这个 tile(Sprite) 如同其他的 Sprite 一样，可以旋转、缩放、翻转、透明化、设置颜色等。<br/>
+		你可以通过调用以下方法来对它进行删除:<br/>
+		1. layer.removeChild(sprite, cleanup);<br/>
+		2. 或 layer.removeTileAt(cc.v2(x,y));
+		@param pos or x
+		
+		@example 
+		```js
+		var title = tiledLayer.getTileAt(100, 100);
+		cc.log(title);
+		``` 
 		*/
-		getTileAt(pos : cc.Vec2|number, y? : number) : _ccsg.Sprite;		
-		/** <p>Dealloc the map that contains the tile position from memory. <br />
+		getTileAt(pos : Vec2|number, y? : number) : _ccsg.Sprite;		
+		/** !#en
+		Dealloc the map that contains the tile position from memory. <br />
 		Unless you want to know at runtime the tiles positions, you can safely call this method. <br />
-		If you are going to call layer.getTileGIDAt() then, don't release the map</p> 
+		If you are going to call layer.getTileGIDAt() then, don't release the map.
+		!#zh
+		从内存中释放包含 tile 位置信息的地图。<br />
+		除了在运行时想要知道 tiles 的位置信息外，你都可安全的调用此方法。<br />
+		如果你之后还要调用 layer.tileGIDAt(), 请不要释放地图.
+		
+		@example 
+		```js
+		tiledLayer.releaseMap();
+		``` 
 		*/
 		releaseMap() : void;		
-		/** Sets the untransformed size of the _ccsg.TMXLayer.
+		/** !#en Sets the untransformed size of the _ccsg.TMXLayer.
+		!#zh 设置未转换的 layer 大小。
 		@param size The untransformed size of the _ccsg.TMXLayer or The untransformed size's width of the TMXLayer.
-		@param height The untransformed size's height of the _ccsg.TMXLayer. 
+		@param height The untransformed size's height of the _ccsg.TMXLayer.
+		
+		@example 
+		```js
+		tiledLayer.setContentSize(100, 100);
+		``` 
 		*/
-		setContentSize(size : cc.Size|number, height? : number) : void;		
-		/** Return texture of cc.SpriteBatchNode 
+		setContentSize(size : Size|number, height? : number) : void;		
+		/** !#en Return texture of cc.SpriteBatchNode.
+		!#zh 获取纹理。
+		
+		@example 
+		```js
+		var texture = tiledLayer.getTexture();
+		cc.log("Texture: " + texture);
+		``` 
 		*/
-		getTexture() : cc.Texture2D;		
-		/** Set the texture of cc.SpriteBatchNode 
+		getTexture() : Texture2D;		
+		/** !#en Set the texture of cc.SpriteBatchNode.
+		!#zh 设置纹理。
+		
+		@example 
+		```js
+		tiledLayer.setTexture(texture);
+		``` 
 		*/
-		setTexture(texture : cc.Texture2D) : void;		
-		/** Gets layer size. 
+		setTexture(texture : Texture2D) : void;		
+		/** !#en Gets layer size.
+		!#zh 获得层大小。
+		
+		@example 
+		```js
+		var size = tiledLayer.getLayerSize();
+		cc.log("layer size: " + size);
+		``` 
 		*/
-		getLayerSize() : cc.Size;		
-		/** Set layer size 
+		getLayerSize() : Size;		
+		/** !#en Set layer size.
+		!#zh 设置层大小。
+		
+		@example 
+		```js
+		tiledLayer.setLayerSize(new cc.size(5, 5));
+		``` 
 		*/
-		setLayerSize(layerSize : cc.Size) : void;		
-		/** Size of the map's tile (could be different from the tile's size) 
+		setLayerSize(layerSize : Size) : void;		
+		/** !#en Size of the map's tile (could be different from the tile's size).
+		!#zh 获取 tile 的大小( tile 的大小可能会有所不同)。
+		
+		@example 
+		```js
+		var mapTileSize = tiledLayer.getMapTileSize();
+		cc.log("MapTile size: " + mapTileSize);
+		``` 
 		*/
-		getMapTileSize() : cc.Size;		
-		/** Set the map tile size. 
+		getMapTileSize() : Size;		
+		/** !#en Set the map tile size.
+		!#zh 设置 tile 的大小。
+		
+		@example 
+		```js
+		tiledLayer.setMapTileSize(new cc.size(10, 10));
+		``` 
 		*/
-		setMapTileSize(tileSize : cc.Size) : void;		
-		/** Pointer to the map of tiles 
+		setMapTileSize(tileSize : Size) : void;		
+		/** !#en Pointer to the map of tiles.
+		!#zh 获取地图 tiles。
+		
+		@example 
+		```js
+		var tiles = tiledLayer.getTiles();
+		``` 
 		*/
 		getTiles() : any[];		
-		/** Pointer to the map of tiles 
+		/** !#en Pointer to the map of tiles.
+		!#zh 设置地图 tiles
+		
+		@example 
+		```js
+		tiledLayer.setTiles(tiles);
+		``` 
 		*/
 		setTiles(tiles : any[]) : void;		
-		/** Tile set information for the layer 
+		/** !#en Tile set information for the layer.
+		!#zh 获取 layer 的 Tileset 信息。
+		
+		@example 
+		```js
+		var tileset = tiledLayer.getTileset();
+		``` 
 		*/
-		getTileset() : cc.TMXTilesetInfo;		
-		/** Tile set information for the layer 
+		getTileset() : TMXTilesetInfo;		
+		/** !#en Tile set information for the layer.
+		!#zh 设置 layer 的 Tileset 信息。
+		
+		@example 
+		```js
+		tiledLayer.getTileset(tileset);
+		``` 
 		*/
-		setTileset(tileset : cc.TMXTilesetInfo) : void;		
-		/** Layer orientation, which is the same as the map orientation 
+		setTileset(tileset : TMXTilesetInfo) : void;		
+		/** !#en Layer orientation, which is the same as the map orientation.
+		!#zh 获取 Layer 方向(同地图方向)。
+		
+		@example 
+		```js
+		var orientation = tiledLayer.getLayerOrientation();
+		cc.log("Layer Orientation: " + orientation);
+		``` 
 		*/
 		getLayerOrientation() : number;		
-		/** Layer orientation, which is the same as the map orientation 
+		/** !#en Layer orientation, which is the same as the map orientation.
+		!#zh 设置 Layer 方向(同地图方向)。
+		
+		@example 
+		```js
+		tiledLayer.setLayerOrientation(TiledMap.Orientation.ORTHO);
+		``` 
 		*/
-		setLayerOrientation(orientation : number) : void;		
-		/** properties from the layer. They can be added using Tiled 
+		setLayerOrientation(orientation : TiledMap.Orientation) : void;		
+		/** !#en properties from the layer. They can be added using Tiled.
+		!#zh 获取 layer 的属性，可以使用 Tiled 编辑器添加属性。
+		
+		@example 
+		```js
+		var properties = tiledLayer.getProperties();
+		cc.log("Properties: " + properties);
+		``` 
 		*/
 		getProperties() : any[];		
-		/** properties from the layer. They can be added using Tiled 
+		/** !#en properties from the layer. They can be added using Tiled.
+		!#zh 设置层属性。
+		
+		@example 
+		```js
+		tiledLayer.setLayerOrientation(properties);
+		``` 
 		*/
 		setProperties(properties : any[]) : void;	
 	}		
-		/** Renders a TMX Tile Map in the scene. */
+		/** !#en Renders a TMX Tile Map in the scene.
+		!#zh 在场景中渲染一个 tmx 格式的 Tile Map。 */
 		export class TiledMap extends Component {		
-		/** The tmx file. */
+		/** !#en The tmx file.
+		!#zh tmx 文件。 */
 		tmxFile : string;		
-		/** The event handler to be called when the map is loaded. */
-		mapLoaded : cc.Component.EventHandler;		
-		/** Gets the map size. 
+		/** !#en The event handler to be called when the map is loaded.
+		!#zh 在加载在地图时要调用的事件处理程序。 */
+		mapLoaded : Component.EventHandler;		
+		/** !#en Gets the map size.
+		!#zh 获取地图大小。
+		
+		@example 
+		```js
+		var mapSize = tiledMap.getMapSize();
+		cc.log("Map Size: " + mapSize);
+		``` 
 		*/
-		getMapSize() : cc.Size;		
-		/** Set the map size. 
+		getMapSize() : Size;		
+		/** !#en Set the map size.
+		!#zh 设置地图大小。
+		
+		@example 
+		```js
+		tiledMap.setMapSize(new cc.size(960, 640));
+		``` 
 		*/
-		setMapSize(mapSize : cc.Size) : void;		
-		/** Gets the tile size. 
+		setMapSize(mapSize : Size) : void;		
+		/** !#en Gets the tile size.
+		!#zh 获取地图背景中 tile 元素的大小。
+		
+		@example 
+		```js
+		var tileSize = tiledMap.getTileSize();
+		cc.log("Tile Size: " + tileSize);
+		``` 
 		*/
-		getTileSize() : cc.Size;		
-		/** Set the tile size 
+		getTileSize() : Size;		
+		/** !#en Set the tile size.
+		!#zh 设置地图背景中 tile 元素的大小。
+		
+		@example 
+		```js
+		tiledMap.setTileSize(new cc.size(10, 10));
+		``` 
 		*/
-		setTileSize(tileSize : cc.Size) : void;		
-		/** map orientation 
+		setTileSize(tileSize : Size) : void;		
+		/** !#en map orientation.
+		!#zh 获取地图方向。
+		
+		@example 
+		```js
+		var mapOrientation = tiledMap.getMapOrientation();
+		cc.log("Map Orientation: " + mapOrientation);
+		``` 
 		*/
 		getMapOrientation() : number;		
-		/** map orientation 
+		/** !#en map orientation.
+		!#zh 设置地图方向。
+		
+		@example 
+		```js
+		tiledMap.setMapOrientation(TiledMap.Orientation.ORTHO);
+		``` 
 		*/
-		setMapOrientation(orientation : number) : void;		
-		/** object groups 
+		setMapOrientation(orientation : TiledMap.Orientation) : void;		
+		/** !#en object groups.
+		!#zh 获取所有的对象层。
+		
+		@example 
+		```js
+		var objGroups = titledMap.getObjectGroups();
+		for (var i = 0; i < objGroups.length; ++i) {
+		    cc.log("obj: " + objGroups[i]);
+		}
+		``` 
 		*/
 		getObjectGroups() : any[];		
-		/** object groups 
+		/** !#en object groups.
+		!#zh 设置所有的对象层。
+		
+		@example 
+		```js
+		titledMap.setObjectGroups(groups);
+		``` 
 		*/
 		setObjectGroups(groups : any[]) : void;		
-		/** Gets the map properties 
+		/** !#en Gets the map properties.
+		!#zh 获取地图的属性。
+		
+		@example 
+		```js
+		var properties = titledMap.getProperties();
+		for (var i = 0; i < properties.length; ++i) {
+		    cc.log("Properties: " + properties[i]);
+		}
+		``` 
 		*/
-		getProperties() : any;		
-		/** Set the map properties 
+		getProperties() : any[];		
+		/** !#en Set the map properties.
+		!#zh 设置地图的属性。
+		
+		@example 
+		```js
+		titledMap.setProperties(properties);
+		``` 
 		*/
-		setProperties(properties : any) : void;		
-		/** Initializes the instance of cc.TiledMap with tmxFile.
-		The mapLoaded events will be emitted when the map is loaded. 
+		setProperties(properties : any[]) : void;		
+		/** !#en Return All layers array.
+		!#zh 返回包含所有 layer 的数组。
+		
+		@example 
+		```js
+		var layers = titledMap.allLayers();
+		for (var i = 0; i < layers.length; ++i) {
+		    cc.log("Layers: " + layers[i]);
+		}
+		``` 
 		*/
-		initWithTMXFile(tmxFile : string) : void;		
-		/** Initializes the instance of cc.TiledMap with tmxString.
-		The mapLoaded events will be emitted when the map is loaded. 
+		allLayers() : Node[];		
+		/** !#en return the cc.TiledLayer for the specific layer.
+		!#zh 获取指定名称的 layer。
+		
+		@example 
+		```js
+		var layer = titledMap.getLayer("Player");
+		cc.log(layer);
+		``` 
 		*/
-		initWithXML(tmxString : string, resourcePath : string) : void;		
-		/** Return All layers array. 
+		getLayer(layerName : string) : TiledLayer;		
+		/** !#en Return the TMXObjectGroup for the specific group.
+		!#zh 获取指定的 TMXObjectGroup。
+		
+		@example 
+		```js
+		var group = titledMap.getObjectGroup("Players");
+		cc.log("ObjectGroup: " + group);
+		``` 
 		*/
-		allLayers() : any[];		
-		/** return the cc.TiledLayer for the specific layer 
-		*/
-		getLayer(layerName : string) : cc.TiledLayer;		
-		/** Return the TMXObjectGroup for the specific group 
-		*/
-		getObjectGroup(groupName : string) : cc.TMXObjectGroup;		
-		/** Return the value for the specific property name 
+		getObjectGroup(groupName : string) : TMXObjectGroup;		
+		/** !#en Return the value for the specific property name.
+		!#zh 通过属性名称，获取指定的属性。
+		
+		@example 
+		```js
+		var property = titledMap.getProperty("info");
+		cc.log("Property: " + property);
+		``` 
 		*/
 		getProperty(propertyName : string) : string;		
-		/** Return properties dictionary for tile GID 
+		/** !#en Return properties dictionary for tile GID.
+		!#zh 通过 GID ，获取指定的属性。
+		
+		@example 
+		```js
+		var properties = titledMap.getPropertiesForGID(GID);
+		cc.log("Properties: " + properties);
+		``` 
 		*/
 		getPropertiesForGID(GID : number) : any;	
 	}		
@@ -4701,7 +4977,6 @@ declare module cc {
 		Note: All asset urls in Creator use forward slashes, urls using backslashes will not work.
 		@param url Url of the target resource.
 		                       The url is relative to the "resources" folder, extensions must be omitted.
-		@param progressCallback Callback invoked when progression change. See {{#crossLink "Pipeline/onProgress:method"}}Pipeline.onProgress{{/crossLink}}.
 		@param completeCallback Callback invoked when the resource loaded.
 		
 		@example 
@@ -4716,7 +4991,7 @@ declare module cc {
 		});
 		``` 
 		*/
-		loadRes(url : string, progressCallback? : Function, completeCallback: (error: Error, resource: any) => void) : void;		
+		loadRes(url : string, completeCallback: (error: Error, resource: any) => void) : void;		
 		/** Get resource data by id. <br>
 		When you load resources with {{#crossLink "loader/load:method"}}{{/crossLink}} or {{#crossLink "loader/loadRes:method"}}{{/crossLink}},
 		the url will be the unique identity of the resource.
@@ -4898,6 +5173,109 @@ declare module cc {
 		``` 
 		*/
 		onComplete(error : any[], items : LoadingItems) : void;	
+	}		
+		/** <p>
+		   A cc.SpriteFrame has:<br/>
+		     - texture: A cc.Texture2D that will be used by the _ccsg.Sprite<br/>
+		     - rectangle: A rectangle of the texture<br/>
+		   <br/>
+		   You can modify the frame of a _ccsg.Sprite by doing:<br/>
+		</p> */
+		export class SpriteFrame extends Asset {		
+		constructor();		
+		/** Constructor of SpriteFrame class
+		@param rect If parameters' length equal 2, rect in points, else rect in pixels
+		@param rotated Whether the frame is rotated in the texture
+		@param offset The offset of the frame in the texture
+		@param originalSize The size of the frame in the texture
+		
+		@example 
+		```js
+		// ----------------------------------------------------
+		// 1. Create a cc.SpriteFrame with image path
+		var url = cc.url.raw('resources/textures/grossini_dance.png');
+		var frame1 = new cc.SpriteFrame(url, cc.Rect(0, 0, 90, 128));
+		
+		// ----------------------------------------------------
+		// 2. Create a cc.SpriteFrame with a texture, rect, rotated, offset and originalSize in pixels.
+		var url = cc.url.raw('resources/textures/grossini_dance.png');
+		var texture = cc.textureCache.addImage(url);
+		var frame1 = new cc.SpriteFrame(texture, cc.Rect(0, 0, 90, 128));
+		var frame2 = new cc.SpriteFrame(texture, cc.Rect(0, 0, 90, 128), false, 0, cc.Size(90, 128));
+		
+		// ----------------------------------------------------
+		// 3. load a cc.SpriteFrame with image path (Recommend)
+		var url = 'resources://test assets/PurpleMonster.png/PurpleMonster';
+		var self = this;
+		cc.loader.load(url, function (err, spriteFrame) {
+		        var node = new cc.Node("New Sprite");
+		        var sprite = node.addComponent(cc.Sprite);
+		        sprite.spriteFrame = spriteFrame;
+		        node.parent = self.node
+		    }
+		);
+		
+		``` 
+		*/
+		SpriteFrame(filename : string|Texture2D, rect : Rect, rotated? : boolean, offset? : Vec2, originalSize? : Size) : void;		
+		/** Top border of the sprite */
+		insetTop : number;		
+		/** Bottom border of the sprite */
+		insetBottom : number;		
+		/** Left border of the sprite */
+		insetLeft : number;		
+		/** Right border of the sprite */
+		insetRight : number;		
+		/** Returns whether the texture have been loaded 
+		*/
+		textureLoaded() : boolean;		
+		/** Add a event listener for texture loaded event. 
+		*/
+		addLoadedEventListener(callback : Function, target : any) : void;		
+		/** Returns whether the sprite frame is rotated in the texture. 
+		*/
+		isRotated() : boolean;		
+		/** Set whether the sprite frame is rotated in the texture. 
+		*/
+		setRotated(bRotated : boolean) : void;		
+		/** Returns the rect of the sprite frame in the texture. 
+		*/
+		getRect() : Rect;		
+		/** Sets the rect of the sprite frame in the texture. 
+		*/
+		setRect(rect : Rect) : void;		
+		/** Returns the original size of the trimmed image. 
+		*/
+		getOriginalSize() : Size;		
+		/** Sets the original size of the trimmed image. 
+		*/
+		setOriginalSize(size : Size) : void;		
+		/** Returns the texture of the frame. 
+		*/
+		getTexture() : Texture2D;		
+		/** Sets the texture of the frame, the texture is retained automatically. 
+		*/
+		_refreshTexture(texture : Texture2D) : void;		
+		/** Returns the offset of the frame in the texture. 
+		*/
+		getOffset() : Vec2;		
+		/** Sets the offset of the frame in the texture. 
+		*/
+		setOffset(offsets : Vec2) : void;		
+		/** Clone the sprite frame. 
+		*/
+		clone() : SpriteFrame;		
+		/** Initializes SpriteFrame with Texture, rect, rotated, offset and originalSize in pixels.<br/>
+		Please pass parameters to the constructor to initialize the sprite, do not call this function yourself.
+		@param rect if parameters' length equal 2, rect in points, else rect in pixels 
+		*/
+		initWithTexture(texture : string|Texture2D, rect : Rect, rotated? : boolean, offset? : Vec2, originalSize? : Size) : boolean;		
+		/** Copy the sprite frame 
+		*/
+		copyWithZone() : SpriteFrame;		
+		/** Copy the sprite frame 
+		*/
+		copy() : SpriteFrame;	
 	}		
 		/** The asset library which managing loading/unloading assets in project. */
 		export class AssetLibrary {		
@@ -5818,109 +6196,6 @@ declare module cc {
 		builtinRaw(url : string) : string;	
 	}		
 		/** <p>
-		   A cc.SpriteFrame has:<br/>
-		     - texture: A cc.Texture2D that will be used by the _ccsg.Sprite<br/>
-		     - rectangle: A rectangle of the texture<br/>
-		   <br/>
-		   You can modify the frame of a _ccsg.Sprite by doing:<br/>
-		</p> */
-		export class SpriteFrame extends Asset {		
-		constructor();		
-		/** Constructor of SpriteFrame class
-		@param rect If parameters' length equal 2, rect in points, else rect in pixels
-		@param rotated Whether the frame is rotated in the texture
-		@param offset The offset of the frame in the texture
-		@param originalSize The size of the frame in the texture
-		
-		@example 
-		```js
-		// ----------------------------------------------------
-		// 1. Create a cc.SpriteFrame with image path
-		var url = cc.url.raw('resources/textures/grossini_dance.png');
-		var frame1 = new cc.SpriteFrame(url, cc.Rect(0, 0, 90, 128));
-		
-		// ----------------------------------------------------
-		// 2. Create a cc.SpriteFrame with a texture, rect, rotated, offset and originalSize in pixels.
-		var url = cc.url.raw('resources/textures/grossini_dance.png');
-		var texture = cc.textureCache.addImage(url);
-		var frame1 = new cc.SpriteFrame(texture, cc.Rect(0, 0, 90, 128));
-		var frame2 = new cc.SpriteFrame(texture, cc.Rect(0, 0, 90, 128), false, 0, cc.Size(90, 128));
-		
-		// ----------------------------------------------------
-		// 3. load a cc.SpriteFrame with image path (Recommend)
-		var url = 'resources://test assets/PurpleMonster.png/PurpleMonster';
-		var self = this;
-		cc.loader.load(url, function (err, spriteFrame) {
-		        var node = new cc.Node("New Sprite");
-		        var sprite = node.addComponent(cc.Sprite);
-		        sprite.spriteFrame = spriteFrame;
-		        node.parent = self.node
-		    }
-		);
-		
-		``` 
-		*/
-		SpriteFrame(filename : string|Texture2D, rect : Rect, rotated? : boolean, offset? : Vec2, originalSize? : Size) : void;		
-		/** Top border of the sprite */
-		insetTop : number;		
-		/** Bottom border of the sprite */
-		insetBottom : number;		
-		/** Left border of the sprite */
-		insetLeft : number;		
-		/** Right border of the sprite */
-		insetRight : number;		
-		/** Returns whether the texture have been loaded 
-		*/
-		textureLoaded() : boolean;		
-		/** Add a event listener for texture loaded event. 
-		*/
-		addLoadedEventListener(callback : Function, target : any) : void;		
-		/** Returns whether the sprite frame is rotated in the texture. 
-		*/
-		isRotated() : boolean;		
-		/** Set whether the sprite frame is rotated in the texture. 
-		*/
-		setRotated(bRotated : boolean) : void;		
-		/** Returns the rect of the sprite frame in the texture. 
-		*/
-		getRect() : Rect;		
-		/** Sets the rect of the sprite frame in the texture. 
-		*/
-		setRect(rect : Rect) : void;		
-		/** Returns the original size of the trimmed image. 
-		*/
-		getOriginalSize() : Size;		
-		/** Sets the original size of the trimmed image. 
-		*/
-		setOriginalSize(size : Size) : void;		
-		/** Returns the texture of the frame. 
-		*/
-		getTexture() : Texture2D;		
-		/** Sets the texture of the frame, the texture is retained automatically. 
-		*/
-		_refreshTexture(texture : Texture2D) : void;		
-		/** Returns the offset of the frame in the texture. 
-		*/
-		getOffset() : Vec2;		
-		/** Sets the offset of the frame in the texture. 
-		*/
-		setOffset(offsets : Vec2) : void;		
-		/** Clone the sprite frame. 
-		*/
-		clone() : SpriteFrame;		
-		/** Initializes SpriteFrame with Texture, rect, rotated, offset and originalSize in pixels.<br/>
-		Please pass parameters to the constructor to initialize the sprite, do not call this function yourself.
-		@param rect if parameters' length equal 2, rect in points, else rect in pixels 
-		*/
-		initWithTexture(texture : string|Texture2D, rect : Rect, rotated? : boolean, offset? : Vec2, originalSize? : Size) : boolean;		
-		/** Copy the sprite frame 
-		*/
-		copyWithZone() : SpriteFrame;		
-		/** Copy the sprite frame 
-		*/
-		copy() : SpriteFrame;	
-	}		
-		/** <p>
 		This class allows to easily create OpenGL or Canvas 2D textures from images, text or raw data.                                    <br/>
 		The created cc.Texture2D object will always have power-of-two dimensions.                                                <br/>
 		Depending on how you create the cc.Texture2D object, the actual image area of the texture might be smaller than the texture dimensions <br/>
@@ -5939,7 +6214,15 @@ declare module cc {
 		/** Get content size in pixels. 
 		*/
 		getContentSizeInPixels() : Size;		
-		/** Init with HTML element. 
+		/** Init with HTML element.
+		
+		@example 
+		```js
+		var img = new Image();
+		img.src = dataURL;
+		texture.initWithElement(img);
+		texture.handleLoadedTexture();
+		``` 
 		*/
 		initWithElement(element : HTMLImageElement|HTMLCanvasElement) : void;		
 		/** Intializes with a texture2d with data. 
@@ -6864,6 +7147,11 @@ declare module cc {
 		``` 
 		*/
 		isChildOf(parent : Node) : boolean;		
+		/** !#en Sorts the children array depends on children's zIndex and arrivalOrder,
+		normally you won't need to invoke this function.
+		!#zh 根据子节点的 zIndex 和 arrivalOrder 进行排序，正常情况下开发者不需要手动调用这个函数。 
+		*/
+		sortAllChildren() : void;		
 		/** !#en position of node.
 		!#zh 节点相对父节点的坐标。 */
 		position : Vec2;		
@@ -7547,37 +7835,18 @@ declare module cc {
 	*****************************************************/
 	
 	export module TiledMap {		
-		/** The orientation of tiled map */
+		/** !#en The orientation of tiled map.
+		!#zh Tiled Map 地图方向。 */
 		export enum Orientation {			
 			ORTHO = 0,
 			HEX = 0,
-			ISO = 0,		
-		}	
-	}	
-	
-	/****************************************************
-	* TiledMap
-	*****************************************************/
-	
-	export module TiledMap {		
-		/** The property type of tiled map */
-		export enum Property {			
+			ISO = 0,
 			NONE = 0,
 			MAP = 0,
 			LAYER = 0,
 			OBJECTGROUP = 0,
 			OBJECT = 0,
-			TILE = 0,		
-		}	
-	}	
-	
-	/****************************************************
-	* TiledMap
-	*****************************************************/
-	
-	export module TiledMap {		
-		/** The tile flags of tiled map */
-		export enum TileFlag {			
+			TILE = 0,
 			HORIZONTAL = 0,
 			VERTICAL = 0,
 			DIAGONAL = 0,
