@@ -3,3 +3,4 @@ library
 local
 packages
 temp
+.DS_Store
