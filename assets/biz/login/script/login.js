@@ -2,7 +2,6 @@ var qwest = require('qwest');
 var user = require('user');
 var api = require('api');
 
-
 var btnAction = {
     show: cc.moveTo(0.5, cc.p(540, 280)).easing(cc.easeIn(3.0)),
     hide: cc.moveTo(0.5, cc.p(540, 425)).easing(cc.easeIn(3.0))

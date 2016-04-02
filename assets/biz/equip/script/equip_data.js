@@ -68,7 +68,7 @@ var wheel = [{
 }];
 
 module.exports = {
-    tankHead: head,
-    tankBody: body,
-    tankWheel: wheel
+    tankhead: head,
+    tankbody: body,
+    tankwheel: wheel
 };

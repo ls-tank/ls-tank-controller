@@ -1855,7 +1855,7 @@
     "btn": {
       "__id__": 40
     },
-    "equipType": "tankHead"
+    "equipType": "tankhead"
   },
   {
     "__type__": "cc.Node",
@@ -3127,7 +3127,7 @@
     "btn": {
       "__id__": 75
     },
-    "equipType": "tankBody"
+    "equipType": "tankbody"
   },
   {
     "__type__": "cc.Node",
@@ -4399,7 +4399,7 @@
     "btn": {
       "__id__": 110
     },
-    "equipType": "tankWheel"
+    "equipType": "tankwheel"
   },
   {
     "__type__": "cc.Node",

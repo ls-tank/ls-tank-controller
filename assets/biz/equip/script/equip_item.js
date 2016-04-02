@@ -33,6 +33,7 @@ cc.Class({
     },
     
     setLevel: function(level) {
+        console.log(user);
         this.now.spriteFrame = this.items[level];
         this.next.spriteFrame = this.items[level + 1];
         this.desc.string = tank[this.equipType][level + 1].desc;
