@@ -96,31 +96,18 @@
             _CCSettings = undefined;
         };
 
-        var option;
-
-        if (cc.sys.isNative) {
-            var txt = jsb.fileUtils.getStringFromFile("project.json");
-            if (!txt) txt = jsb.fileUtils.getStringFromFile("project-runtime.json");
-            if (!txt) {
-                console.log('Can\'t find project.json');
-                option = {};
-            }
-            else {
-                option = JSON.parse(txt);
-            }
-
-            option.scenes = _CCSettings.scenes;
-        }
-        else {
-            option = {
-                //width: width,
-                //height: height,
-                id: 'GameCanvas',
-                scenes: _CCSettings.scenes,
-                debugMode: _CCSettings.debug ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
-                showFPS: _CCSettings.debug,
-            };
-        }
+        var option = {
+            //width: width,
+            //height: height,
+            id: 'GameCanvas',
+            scenes: _CCSettings.scenes,
+            debugMode: _CCSettings.debug ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
+            showFPS: _CCSettings.debug,
+            frameRate: 60,
+            jsList: [
+                _CCSettings.debug ? 'src/project.dev.js' : 'src/project.js'
+            ]
+        };
 
         cc.game.run(option, onStart);
     }

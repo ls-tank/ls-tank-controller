@@ -19,6 +19,9 @@ var api = {
     },
     register: function register(data) {
         return ajax('POST', 'http://127.0.0.1:8123/api/register/', data);
+    },
+    update: function update(data) {
+        return ajax('PATCH', 'http://127.0.0.1:8123/api/user/', data);
     }
 };
 

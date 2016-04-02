@@ -1,4 +1,5 @@
 var user = require('user');
+var api = require('api');
 
 cc.Class({
     'extends': cc.Component,
@@ -76,14 +77,18 @@ cc.Class({
         var self = this;
 
         this.headComponent.node.on('cost', function (event) {
-            self.initData();
+            self.initData();self.updateRemote();
         });
         this.bodyComponent.node.on('cost', function (event) {
-            self.initData();
+            self.initData();self.updateRemote();
         });
         this.wheelComponent.node.on('cost', function (event) {
-            self.initData();
+            self.initData();self.updateRemote();
         });
+    },
+
+    updateRemote: function updateRemote() {
+        api.update(user);
     },
 
     onNoCost: function onNoCost() {
