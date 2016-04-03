@@ -33,7 +33,6 @@ cc.Class({
     },
     
     setLevel: function(level) {
-        console.log(user);
         this.now.spriteFrame = this.items[level];
         this.next.spriteFrame = this.items[level + 1];
         this.desc.string = tank[this.equipType][level + 1].desc;
@@ -44,10 +43,15 @@ cc.Class({
         if (+tank[this.equipType][user[this.equipType] + 1].cost > +user.diamond) {
             return this.node.emit('nocost');
         }
-        user.cost(this.equipType, +tank[this.equipType][user[this.equipType] + 1].cost);
+        
         if (user[this.equipType] === 5) {
             this.btn.interactable = false;
+            return ;
         }
+        
+        
+        user.cost(this.equipType, +tank[this.equipType][user[this.equipType] + 1].cost);
+        
         this.setLevel(user[this.equipType]);
         this.node.emit('cost');
     },

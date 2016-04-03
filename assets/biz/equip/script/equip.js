@@ -83,7 +83,14 @@ cc.Class({
     },
     
     updateRemote: function() {
-        api.update(user);
+        api.update({
+            diamond: user.diamond,
+            kill: user.kill,
+            dead: user.dead,
+            tankbody: user.tankbody,
+            tankhead: user.tankhead,
+            tankwheel: user.tankwheel
+        });
     },
     
     onNoCost: function() {

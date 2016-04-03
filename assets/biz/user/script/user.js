@@ -1,7 +1,9 @@
 function User(user) {}
 
 User.prototype.init = function(user) {
+    this._id = user.Id;
     this.nickname = user.Nickname;
+    
     this.diamond = user.Diamond;
     this.kill = user.Kill;
     this.dead = user.Dead;

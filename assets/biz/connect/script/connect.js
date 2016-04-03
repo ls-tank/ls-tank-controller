@@ -7,7 +7,7 @@ var Connect = (function() {
     var ws;
     
     var connect = function() {
-        ws = sio(URI + '?uid=' + User.Id); 
+        ws = sio(URI + '?uid=' + User._id + '&head=' + User.tankhead + '&body=' + User.tankbody + '&wheel=' + User.tankwheel); 
     }
     
     var disconnect = function() {
@@ -20,7 +20,7 @@ var Connect = (function() {
     
     var emit = function(eventName, eventObj) {
         ws.emit(eventName, {
-           uid: User.Id,
+           uid: User._id,
            data: eventObj
         });
     }
