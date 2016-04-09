@@ -77,20 +77,9 @@ cc.Class({
     onCost: function() {
         var self = this;
         
-        this.headComponent.node.on('cost', function(event) { self.initData(); self.updateRemote(); });
-        this.bodyComponent.node.on('cost', function(event) { self.initData(); self.updateRemote(); });
-        this.wheelComponent.node.on('cost', function(event) { self.initData(); self.updateRemote(); });
-    },
-    
-    updateRemote: function() {
-        api.update({
-            diamond: user.diamond,
-            kill: user.kill,
-            dead: user.dead,
-            tankbody: user.tankbody,
-            tankhead: user.tankhead,
-            tankwheel: user.tankwheel
-        });
+        this.headComponent.node.on('cost', function(event) { self.initData(); });
+        this.bodyComponent.node.on('cost', function(event) { self.initData(); });
+        this.wheelComponent.node.on('cost', function(event) { self.initData(); });
     },
     
     onNoCost: function() {

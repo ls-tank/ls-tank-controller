@@ -24,9 +24,14 @@ cc.Class({
     },
 
     onLoad: function() {
+        Connect.connect();
         Connect.on('c-boom', event => {
             this.lose.runAction(loseAction.show);    
         });
+    },
+    
+    onDestory: function() {
+        
     },
     
     nextHandler: function() {
@@ -35,11 +40,12 @@ cc.Class({
     },
     
     equipHandler: function() {
-        
+        cc.director.loadScene('Equip');
+        Connect.disconnect();
     },
     
     backHandler: function() {
-        Connect.disconnect();
         cc.director.loadScene('Main');
+        Connect.disconnect();
     }
 });

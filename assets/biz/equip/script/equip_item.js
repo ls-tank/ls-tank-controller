@@ -1,5 +1,6 @@
 var user = require('user');
 var tank = require('equip_data');
+var api = require('api');
 
 cc.Class({
     extends: cc.Component,
@@ -40,20 +41,33 @@ cc.Class({
     },
     
     upgrade: function() {
+        this.btn.interactable = false;
         if (+tank[this.equipType][user[this.equipType] + 1].cost > +user.diamond) {
             return this.node.emit('nocost');
         }
         
         if (user[this.equipType] === 5) {
             this.btn.interactable = false;
-            return ;
+            return;
         }
-        
         
         user.cost(this.equipType, +tank[this.equipType][user[this.equipType] + 1].cost);
         
-        this.setLevel(user[this.equipType]);
-        this.node.emit('cost');
+        api.update({
+            diamond: user.diamond,
+            kill: user.kill,
+            dead: user.dead,
+            tankbody: user.tankbody,
+            tankhead: user.tankhead,
+            tankwheel: user.tankwheel
+        }).then(() => {
+            this.btn.interactable = true;
+            this.setLevel(user[this.equipType]);
+            this.node.emit('cost');
+        }, () => {
+            this.btn.interactable = true;
+            user.uncost(this.equipType, +tank[this.equipType][user[this.equipType]].cost);
+        });
     },
     
     onLoad: function() {

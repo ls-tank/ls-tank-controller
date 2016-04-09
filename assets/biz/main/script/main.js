@@ -40,7 +40,7 @@ cc.Class({
     },
     
     toPlayHandler: function() {
-        Connect.connect();
+        
         cc.director.loadScene('Controller');
     },
     

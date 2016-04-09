@@ -17,4 +17,9 @@ User.prototype.cost = function(type, cost) {
     this.diamond -= cost;
 };
 
+User.prototype.uncost = function(type, cost) {
+    this[type]--;
+    this.diamond += cost;
+};
+
 module.exports = new User();
