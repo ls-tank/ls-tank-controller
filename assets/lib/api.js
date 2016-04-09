@@ -3,6 +3,7 @@ var qwest = require('qwest');
 var ajax = function(type, url, data) {
     var promise = new Promise(function(resolve, reject) {
         qwest.map(type, url, data, { withCredentials: true }).then(function(res, data) {
+            if (res.status !== 200) return reject(data);
             if (data.ok) { resolve(data); } 
             else { reject(data); }
         })
