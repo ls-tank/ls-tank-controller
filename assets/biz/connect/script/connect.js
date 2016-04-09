@@ -3,11 +3,10 @@ var User = require('user');
 
 var Connect = (function() {
     var URI = '10.10.1.38:3000/tankControllers';
-    
     var ws;
     
     var connect = function() {
-        ws = sio(URI + '?uid=' + User._id + '&head=' + User.tankhead + '&body=' + User.tankbody + '&wheel=' + User.tankwheel + '&nickname=' + User.nickname); 
+        ws = sio(URI + '?uid=' + User._id + '&head=' + User.tankhead + '&body=' + User.tankbody + '&wheel=' + User.tankwheel + '&nickname=' + User.nickname);
     };
     
     var disconnect = function() {

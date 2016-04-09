@@ -18,12 +18,16 @@ cc.Class({
     
     setTouchControl: function() {
         var self = this;
-        cc.eventManager.addListener({
+        this.touchControl = cc.eventManager.addListener({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             onTouchBegan: self.onTouchBegin.bind(self),
             onTouchMoved: self.onTouchMove.bind(self),
             onTouchEnded: self.onTouchEnd.bind(self)
         }, self.node);
+    },
+    
+    unsetTouchControl: function() {
+        cc.eventManager.removeListener(this.touchControl);
     },
     
     _getAngle: function(pos) {

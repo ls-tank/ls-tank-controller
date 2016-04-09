@@ -8,22 +8,6 @@
 ![](http://a2.qpic.cn/psb?/V11ZOpLG15VaF6/AhxuqThntgdp*6izWzCwMN1FHi0ZgutG4oO7u4NeP9Y!/b/dGEAAAAAAAAA&ek=1&kp=1&pt=0&bo=gAKOAYACjgEFACM!&sce=50-1-1&rf=viewer_311)
 ![](http://a3.qpic.cn/psb?/V11ZOpLG15VaF6/qFRhIWFz*AO8.kB7TSStnvicjtWfs2uwN9*GElwfA7E!/b/dGYAAAAAAAAA&ek=1&kp=1&pt=0&bo=gAKOAYACjgEFACM!&sce=50-1-1&rf=viewer_311)
 
-### Nginx Config
-```
-server {
-  listen 80;
-  server_name dev.tank-controller.com;
-
-  location / {
-    proxy_pass http://127.0.0.1:7456;
-  }
-
-  location /api {
-    rewrite ^.+api/?(.*)$ /$1 break;
-    proxy_pass http://127.0.01:8123;
-  }
-}
-```
 
 ### License
 MIT
