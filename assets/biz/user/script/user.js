@@ -22,4 +22,13 @@ User.prototype.uncost = function(type, cost) {
     this.diamond += cost;
 };
 
+User.prototype.win = function(diamond) {
+    this.kill++;
+    this.diamond += diamond;
+};
+
+User.prototype.lose = function() {
+    this.dead++;    
+};
+
 module.exports = new User();
