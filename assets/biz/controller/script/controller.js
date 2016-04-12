@@ -1,4 +1,6 @@
 var Connect = require('connect');
+var user = require('user');
+var api = require('api');
 
 var loseAction = {
     show: cc.moveTo(0.5, cc.p(0, 0)).easing(cc.easeIn(3.0)),
@@ -25,8 +27,30 @@ cc.Class({
 
     onLoad: function() {
         Connect.connect();
+        
         Connect.on('c-boom', event => {
-            this.lose.runAction(loseAction.show);    
+            this.lose.runAction(loseAction.show);
+            user.lose();
+            api.update({
+                diamond: user.diamond,
+                kill: user.kill,
+                dead: user.dead,
+                tankbody: user.tankbody,
+                tankhead: user.tankhead,
+                tankwheel: user.tankwheel
+            })
+        });
+        
+        Connect.on('c-score', event => {
+            user.win(event.data.price);
+            api.update({
+                diamond: user.diamond,
+                kill: user.kill,
+                dead: user.dead,
+                tankbody: user.tankbody,
+                tankhead: user.tankhead,
+                tankwheel: user.tankwheel
+            })
         });
     },
     
@@ -42,6 +66,7 @@ cc.Class({
     equipHandler: function() {
         cc.director.loadScene('Equip');
         Connect.disconnect();
+        
     },
     
     backHandler: function() {
